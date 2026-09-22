@@ -137,7 +137,7 @@ const AccountText = styled.Text`
 `
 
 
-const SignUpText = styled.Text`
+const RegisterLink = styled.Text`
     font-size: 12px;
     font-weight: bold;
     color: #FFFFFF;
@@ -163,5 +163,5 @@ export {
     Btn,
     BtnTitle,
     AccountText,
-    SignUpText
+    RegisterLink
 }

@@ -1,9 +1,14 @@
+import SignUp from "../sign-up"
 import {Container, LogoArea, LogoText, LogoGo, Subtitle, LoginContainer, Title, Description,
-    Input, ForgotPassword, ForgotPasswordText, Btn, BtnTitle, AccountText, SignUpText
+    Input, ForgotPassword, ForgotPasswordText, Btn, BtnTitle, AccountText, SignUpText, RegisterLink,
 } from "./style"
+
+import { useNavigation } from "@react-navigation/native"
 
 
 const Login = () => {
+
+    const navigation = useNavigation()
 
     return (
         <Container>
@@ -61,9 +66,11 @@ const Login = () => {
                     Não tem uma conta?
                 </AccountText>
 
-                <SignUpText>
-                    Cadastre-se agora
-                </SignUpText>
+                <RegisterLink
+                onPress={()=> navigation.navigate("SignUp")} >
+
+                    Cadastre-se
+                </RegisterLink>
 
             </LoginContainer>
 

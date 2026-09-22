@@ -2,8 +2,11 @@ import {Container, Card, Title, Description, Row, Input, SmallInput, Label,
     GenderContainer, GenderOption, Radio, GenderText, Button, ButtonText, LoginText, LoginLink
 } from "./style"
 
+import { useNavigation } from "@react-navigation/native"
+
 
 const SignUp = () => {
+ const navigation = useNavigation()
 
     return (
         <Container>
@@ -134,7 +137,7 @@ const SignUp = () => {
                 </LoginText>
 
 
-                <LoginLink>
+                <LoginLink onPress={() => navigation.navigate("Login")} >
                     Entrar
                 </LoginLink>
 
