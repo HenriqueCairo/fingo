@@ -5,9 +5,6 @@ import { Ionicons } from "@expo/vector-icons"
 
 import {
     Container,
-    Header,
-    HeaderButton,
-    HeaderTitle,
     Content,
     LessonTitle,
     LessonSubtitle,
@@ -43,11 +40,11 @@ import {
     HelpText
 } from "./style"
 
+import BottomMenu from "../../components/bottom-menu"
+import Header from "../../components/header"
 
-// ========================================
-// EXEMPLO DE LIÇÃO
-// Futuramente recebido da API.
-// ========================================
+
+
 
 const exampleLesson = {
     id: 1,
@@ -91,11 +88,6 @@ const exampleLesson = {
     }
 }
 
-
-// ========================================
-// QUIZ DEMONSTRATIVO
-// Futuramente gerado pelo backend com IA.
-// ========================================
 
 const exampleQuiz = [
     {
@@ -154,33 +146,24 @@ const exampleQuiz = [
 ]
 
 
-const Lesos = ({ route }) => {
+const Lesson = ({ route }) => {
 
     const navigation = useNavigation()
-
-    // A lição poderá vir da tela anterior.
     const lesson = route?.params?.lesson ?? exampleLesson
-
-    // lesson | quiz | result
     const [step, setStep] = useState("lesson")
-
     const [questions, setQuestions] = useState(exampleQuiz)
-
     const [answers, setAnswers] = useState({})
-
     const [score, setScore] = useState(0)
 
 
-    // ========================================
-    // INICIAR QUIZ
-    // ========================================
+  
 
     const startQuiz = () => {
 
         setAnswers({})
         setScore(0)
 
-        // Futuramente:
+       
         // solicitar perguntas à API usando lesson.id.
 
         setQuestions(exampleQuiz)
@@ -188,9 +171,7 @@ const Lesos = ({ route }) => {
     }
 
 
-    // ========================================
-    // SELECIONAR ALTERNATIVA
-    // ========================================
+  
 
     const selectAnswer = (questionId, optionIndex) => {
 
@@ -201,9 +182,7 @@ const Lesos = ({ route }) => {
     }
 
 
-    // ========================================
-    // CORRIGIR RESPOSTAS
-    // ========================================
+    
 
     const finishQuiz = () => {
 
@@ -233,16 +212,13 @@ const Lesos = ({ route }) => {
             }
         })
 
-        // Futuramente a correção será feita pelo backend.
 
         setScore(correctCount)
         setStep("result")
     }
 
 
-    // ========================================
-    // VOLTAR À AULA
-    // ========================================
+   
 
     const backToLesson = () => {
 
@@ -252,9 +228,7 @@ const Lesos = ({ route }) => {
     }
 
 
-    // ========================================
-    // BOTÃO SUPERIOR
-    // ========================================
+
 
     const handleBack = () => {
 
@@ -273,42 +247,11 @@ const Lesos = ({ route }) => {
 
         <Container>
 
-            {/* CABEÇALHO FIXO */}
-
-            <Header>
-
-                <HeaderButton onPress={handleBack}>
-
-                    <Ionicons
-                        name="close"
-                        size={20}
-                        color="#555555"
-                    />
-
-                </HeaderButton>
-
-
-                <HeaderTitle>
-                    {lesson.category}
-                </HeaderTitle>
-
-
-                <HeaderButton onPress={backToLesson}>
-
-                    <Ionicons
-                        name="refresh"
-                        size={20}
-                        color="#00863F"
-                    />
-
-                </HeaderButton>
-
-            </Header>
-
+          <Header />
 
             <Content>
 
-                {/* TÍTULO PERMANECE EM TODOS OS MODOS */}
+                
 
                 <LessonTitle>
                     {lesson.title}
@@ -324,9 +267,7 @@ const Lesos = ({ route }) => {
                 </LessonSubtitle>
 
 
-                {/* ====================================
-                    MODO AULA
-                ==================================== */}
+                
 
                 {step === "lesson" && (
 
@@ -424,9 +365,7 @@ const Lesos = ({ route }) => {
                 )}
 
 
-                {/* ====================================
-                    MODO QUIZ
-                ==================================== */}
+                
 
                 {step === "quiz" && (
 
@@ -538,9 +477,7 @@ const Lesos = ({ route }) => {
                 )}
 
 
-                {/* ====================================
-                    MODO RESULTADO
-                ==================================== */}
+            
 
                 {step === "result" && (
 
@@ -704,6 +641,8 @@ const Lesos = ({ route }) => {
                 <HelpText>?</HelpText>
 
             </HelpButton>
+
+            <BottomMenu active="Lesson" />
 
         </Container>
     )

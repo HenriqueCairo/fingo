@@ -1,9 +1,5 @@
 import {
     Container,
-    Header,
-    Avatar,
-    Logo,
-    Points,
     Content,
     ProfileCard,
     Greeting,
@@ -27,29 +23,17 @@ import {
     CertificateDescription,
     DownloadButton,
     BottomText,
-    BottomMenu,
-    MenuItem,
-    MenuIcon,
-    MenuText,
-    ActiveMenu,
-    ActiveIcon
+    
+
 } from "./style"
+
+import BottomMenu from "../../components/bottom-menu"
 
 
 const Profile = () => {
 
     return (
         <Container>
-
-            <Header>
-
-                <Avatar>👤</Avatar>
-
-                <Logo>FinGo</Logo>
-
-                <Points>♥ 4</Points>
-
-            </Header>
 
 
             <Content>
@@ -225,40 +209,7 @@ const Profile = () => {
             </Content>
 
 
-            <BottomMenu>
-
-                <MenuItem>
-                    <MenuIcon>⌂</MenuIcon>
-                    <MenuText>Aprender</MenuText>
-                </MenuItem>
-
-
-                <MenuItem>
-                    <MenuIcon>⌁</MenuIcon>
-                    <MenuText>Simular</MenuText>
-                </MenuItem>
-
-
-                <MenuItem>
-                    <MenuIcon>▥</MenuIcon>
-                    <MenuText>Trilha</MenuText>
-                </MenuItem>
-
-
-                <ActiveMenu>
-
-                    <ActiveIcon>
-                        ♙
-                    </ActiveIcon>
-
-                    <MenuText>
-                        Perfil
-                    </MenuText>
-
-                </ActiveMenu>
-
-            </BottomMenu>
-
+            <BottomMenu active="Profile" />
         </Container>
     )
 }

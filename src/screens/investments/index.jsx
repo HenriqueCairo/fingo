@@ -1,10 +1,5 @@
 import {
     Container,
-    Header,
-    HeaderLeft,
-    Avatar,
-    Logo,
-    Points,
     Content,
     SectionLabel,
     Balance,
@@ -32,30 +27,17 @@ import {
     NewsHighlightText,
     InvestButton,
     InvestButtonText,
-    BottomMenu,
-    MenuItem,
-    MenuIcon,
-    MenuText,
-    ActiveMenu,
-    ActiveIcon
 } from "./style"
 
+import BottomMenu from "../../components/bottom-menu"
+import Header from "../../components/header"
 
 const Investments = () => {
 
     return (
         <Container>
 
-            <Header>
-
-                <HeaderLeft>
-                    <Avatar>◉</Avatar>
-                    <Logo>FinGo</Logo>
-                </HeaderLeft>
-
-                <Points>120 ⭐</Points>
-
-            </Header>
+             <Header />
 
 
             <Content>
@@ -176,33 +158,8 @@ const Investments = () => {
 
             </Content>
 
+            <BottomMenu active="Investments" />
 
-            <BottomMenu>
-
-                <MenuItem>
-                    <MenuIcon>⌂</MenuIcon>
-                    <MenuText>Início</MenuText>
-                </MenuItem>
-
-
-                <ActiveMenu>
-                    <ActiveIcon>₹</ActiveIcon>
-                    <MenuText>Investir</MenuText>
-                </ActiveMenu>
-
-
-                <MenuItem>
-                    <MenuIcon>▥</MenuIcon>
-                    <MenuText>Trilha</MenuText>
-                </MenuItem>
-
-
-                <MenuItem>
-                    <MenuIcon>♙</MenuIcon>
-                    <MenuText>Perfil</MenuText>
-                </MenuItem>
-
-            </BottomMenu>
 
         </Container>
     )

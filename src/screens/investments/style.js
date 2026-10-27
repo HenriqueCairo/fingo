@@ -1,64 +1,10 @@
 import styled from "styled-components/native"
+import { SafeAreaView } from "react-native-safe-area-context"
 
 
-const Container = styled.View`
+const Container = styled(SafeAreaView)`
     flex: 1;
-
     background-color: #F4FFF1;
-`
-
-
-const Header = styled.View`
-    width: 100%;
-    height: 48px;
-
-    background-color: #FFFFFF;
-
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 14px;
-
-    border-bottom-width: 1px;
-    border-bottom-color: #E5EEE5;
-`
-
-
-const HeaderLeft = styled.View`
-    flex-direction: row;
-    align-items: center;
-`
-
-
-const Avatar = styled.Text`
-    color: #00863F;
-
-    font-size: 16px;
-
-    margin-right: 6px;
-`
-
-
-const Logo = styled.Text`
-    color: #00863F;
-
-    font-size: 12px;
-
-    font-weight: bold;
-`
-
-
-const Points = styled.Text`
-    color: #D29A00;
-
-    font-size: 9px;
-
-    background-color: #FFF5D2;
-
-    padding: 4px 7px;
-
-    border-radius: 10px;
 `
 
 
@@ -386,83 +332,11 @@ const InvestButtonText = styled.Text`
 `
 
 
-const BottomMenu = styled.View`
-    width: 100%;
-    height: 62px;
 
-    background-color: #FFFFFF;
-
-    position: absolute;
-
-    bottom: 0;
-
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-
-    border-top-width: 1px;
-    border-top-color: #EEEEEE;
-`
-
-
-const MenuItem = styled.TouchableOpacity`
-    flex: 1;
-
-    align-items: center;
-    justify-content: center;
-`
-
-
-const MenuIcon = styled.Text`
-    color: #8AA294;
-
-    font-size: 14px;
-
-    margin-bottom: 3px;
-`
-
-
-const MenuText = styled.Text`
-    color: #809087;
-
-    font-size: 7px;
-`
-
-
-const ActiveMenu = styled.TouchableOpacity`
-    flex: 1;
-
-    align-items: center;
-    justify-content: center;
-`
-
-
-const ActiveIcon = styled.Text`
-    width: 34px;
-    height: 34px;
-
-    border-radius: 17px;
-
-    background-color: #00B950;
-
-    color: #FFFFFF;
-
-    font-size: 14px;
-
-    text-align: center;
-    line-height: 34px;
-
-    margin-bottom: 2px;
-`
 
 
 export {
     Container,
-    Header,
-    HeaderLeft,
-    Avatar,
-    Logo,
-    Points,
     Content,
     SectionLabel,
     Balance,
@@ -490,10 +364,4 @@ export {
     NewsHighlightText,
     InvestButton,
     InvestButtonText,
-    BottomMenu,
-    MenuItem,
-    MenuIcon,
-    MenuText,
-    ActiveMenu,
-    ActiveIcon
 }

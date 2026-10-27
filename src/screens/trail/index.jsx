@@ -1,40 +1,21 @@
 import {
-    Container,Header, ProfileArea, Avatar, ProfileText, Name, Level,
-    PointsArea, Points, Bell, Content, ModuleCard, ModuleTitle,
+    Container, Content, ModuleCard, ModuleTitle,
     ModuleProgress, TrailArea, TrailLine, Step, StepText,
     LessonButton, LessonButtonText, PlayButton,
-    PlayText, LockedStep,LockText, BottomMenu,
-    MenuItem, MenuIcon, MenuText, ActiveMenu, ActiveIcon
+    PlayText, LockedStep,LockText,
 } from "./style"
+import { useNavigation } from "@react-navigation/native"
+import BottomMenu from "../../components/bottom-menu"
+import Header from "../../components/header"
 
 
 const Trail = () => {
+     const navigation = useNavigation()
 
     return (
         <Container>
 
-            <Header>
-
-                <ProfileArea>
-
-                    <Avatar>
-                        👤
-                    </Avatar>
-
-                    <ProfileText>
-                        <Name>FinGo</Name>
-                        <Level>Lvl. 1</Level>
-                    </ProfileText>
-
-                </ProfileArea>
-
-
-                <PointsArea>
-                    <Points>2450 XP</Points>
-                    <Bell>♧</Bell>
-                </PointsArea>
-
-            </Header>
+          <Header />
 
 
             <Content>
@@ -116,32 +97,8 @@ const Trail = () => {
             </Content>
 
 
-            <BottomMenu>
+          <BottomMenu active="Trail" />
 
-                <MenuItem>
-                    <MenuIcon>⌂</MenuIcon>
-                    <MenuText>Aprender</MenuText>
-                </MenuItem>
-
-
-                <MenuItem>
-                    <MenuIcon>⌁</MenuIcon>
-                    <MenuText>Simular</MenuText>
-                </MenuItem>
-
-
-                <ActiveMenu>
-                    <ActiveIcon>♜</ActiveIcon>
-                    <MenuText>Trilha</MenuText>
-                </ActiveMenu>
-
-
-                <MenuItem>
-                    <MenuIcon>♙</MenuIcon>
-                    <MenuText>Perfil</MenuText>
-                </MenuItem>
-
-            </BottomMenu>
 
         </Container>
     )

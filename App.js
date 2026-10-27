@@ -5,7 +5,7 @@ import Login from "./src/screens/login"
 import SignUp from "./src/screens/sign-up"
 import ProfileSetup from "./src/screens/profile-setup"
 import Trail from "./src/screens/trail"
-import Lesson from "./src/screens/lesos"
+import Lesson from "./src/screens/lesson"
 import Investments from "./src/screens/investments"
 import Profile from "./src/screens/profile"
 

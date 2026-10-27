@@ -1,19 +1,55 @@
-import SignUp from "../sign-up"
-import {Container, LogoArea, LogoText, LogoGo, Subtitle, LoginContainer, Title, Description,
-    Input, ForgotPassword, ForgotPasswordText, Btn, BtnTitle, AccountText, SignUpText, RegisterLink,
-} from "./style"
 
+import { useState } from "react"
+import { Alert } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 
+import {
+    Container,
+    LogoArea,
+    LogoText,
+    LogoGo,
+    Subtitle,
+    LoginContainer,
+    Title,
+    Description,
+    Input,
+    ForgotPassword,
+    ForgotPasswordText,
+    Btn,
+    BtnTitle,
+    AccountText,
+    RegisterLink,
+} from "./style"
 
 const Login = () => {
 
     const navigation = useNavigation()
 
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    // LOGIN TEMPORÁRIO PARA TESTAR A NAVEGAÇÃO
+    const handleLogin = () => {
+        navigation.navigate("Trail")
+    }
+
+    // ABRIR TELA DE CADASTRO
+    const handleSignUp = () => {
+        navigation.navigate("SignUp")
+    }
+
+    // RECUPERAÇÃO DE SENHA (FUTURA INTEGRAÇÃO)
+    const handleForgotPassword = () => {
+        Alert.alert(
+            "Recuperação de senha",
+            "Essa funcionalidade será integrada ao backend posteriormente."
+        )
+    }
+
     return (
         <Container>
 
-                <LogoArea>
+            <LogoArea>
 
                 <LogoText>
                     Fin<LogoGo>Go</LogoGo>
@@ -25,8 +61,6 @@ const Login = () => {
 
             </LogoArea>
 
-        
-
             <LoginContainer>
 
                 <Title>
@@ -34,7 +68,7 @@ const Login = () => {
                 </Title>
 
                 <Description>
-                    Insira suas credenciais para acessar seu arquivo.
+                    Insira suas credenciais para acessar sua conta.
                 </Description>
 
                 <Input
@@ -42,24 +76,33 @@ const Login = () => {
                     placeholderTextColor="#777"
                     autoCapitalize="none"
                     keyboardType="email-address"
+                    autoCorrect={false}
+                    value={email}
+                    onChangeText={setEmail}
                 />
 
                 <Input
                     placeholder="SENHA"
                     placeholderTextColor="#777"
                     secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
                 />
 
-                <ForgotPassword>
+                <ForgotPassword
+                    onPress={handleForgotPassword}
+                >
                     <ForgotPasswordText>
                         Esqueceu sua senha?
                     </ForgotPasswordText>
                 </ForgotPassword>
 
-                <Btn>
+                <Btn onPress={handleLogin}>
+
                     <BtnTitle>
                         Entrar
                     </BtnTitle>
+
                 </Btn>
 
                 <AccountText>
@@ -67,8 +110,8 @@ const Login = () => {
                 </AccountText>
 
                 <RegisterLink
-                onPress={()=> navigation.navigate("SignUp")} >
-
+                    onPress={handleSignUp}
+                >
                     Cadastre-se
                 </RegisterLink>
 
@@ -77,6 +120,5 @@ const Login = () => {
         </Container>
     )
 }
-
 
 export default Login
