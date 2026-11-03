@@ -2,250 +2,200 @@
 import styled from "styled-components/native"
 import { SafeAreaView } from "react-native-safe-area-context"
 
-const Container = styled(SafeAreaView)`
+const Container = styled(SafeAreaView).attrs({
+    edges: ["bottom"],
+})`
     flex: 1;
     background-color: #F4FFF1;
 `
 
-/* HEADER */
-
-const Header = styled.View`
-    width: 100%;
-    height: 55px;
-    background-color: #FFFFFF;
-
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 15px;
-
-    border-bottom-width: 1px;
-    border-bottom-color: #E8E8E8;
-`
-
-const ProfileArea = styled.View`
-    flex-direction: row;
-    align-items: center;
-`
-
-const Avatar = styled.View`
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-
-    background-color: #D9F1D7;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-right: 8px;
-`
-
-const ProfileText = styled.View``
-
-const Name = styled.Text`
-    color: #00863F;
-    font-size: 11px;
-    font-weight: bold;
-`
-
-const Level = styled.Text`
-    color: #777777;
-    font-size: 7px;
-`
-
-const PointsArea = styled.View`
-    flex-direction: row;
-    align-items: center;
-`
-
-const Points = styled.Text`
-    color: #222222;
-    font-size: 9px;
-    margin-right: 10px;
-`
-
-const Bell = styled.View`
-    align-items: center;
-    justify-content: center;
-`
-
-/* CONTEÚDO */
-
 const Content = styled.ScrollView.attrs({
+    showsVerticalScrollIndicator: false,
     contentContainerStyle: {
-        alignItems: "center",
-        paddingBottom: 100
-    }
+        paddingHorizontal: 20,
+        paddingTop: 24,
+        paddingBottom: 40,
+    },
 })`
     flex: 1;
-    padding: 12px;
+`
+
+const PageTitle = styled.Text`
+    color: #143C28;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+`
+
+const PageSubtitle = styled.Text`
+    color: #64796C;
+    font-size: 15px;
+    line-height: 23px;
+    margin-bottom: 24px;
 `
 
 const ModuleCard = styled.View`
-    width: 90%;
-    min-height: 45px;
+    width: 100%;
+    background-color: #087F42;
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 22px;
+`
 
-    background-color: #FFFFFF;
-    border-radius: 6px;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 8px;
-
-    z-index: 5;
+const ModuleLabel = styled.Text`
+    color: #D9F7E4;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
 `
 
 const ModuleTitle = styled.Text`
-    color: #333333;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 31px;
+    margin-bottom: 12px;
 `
 
-const ModuleProgress = styled.Text`
-    color: #00863F;
-    font-size: 7px;
-    margin-top: 3px;
-    text-align: center;
+const ModuleDescription = styled.Text`
+    color: #E0F7E9;
+    font-size: 15px;
+    line-height: 23px;
 `
-
-/* TRILHA */
 
 const TrailArea = styled.View`
     width: 100%;
     align-items: center;
     padding-top: 12px;
+    padding-bottom: 18px;
+`
+
+const TrailItem = styled.View`
+    width: 100%;
+    min-height: 164px;
+    align-items: ${({ position }) =>
+        position === "left"
+            ? "flex-start"
+            : position === "right"
+            ? "flex-end"
+            : "center"};
+
+    padding-left: ${({ position }) =>
+        position === "left" ? "8%" : "0px"};
+
+    padding-right: ${({ position }) =>
+        position === "right" ? "8%" : "0px"};
+
     position: relative;
+    margin-bottom: 12px;
 `
 
-const TrailLine = styled.View`
+const TrailPath = styled.View`
     position: absolute;
-    top: 0;
-    width: 3px;
-    height: 650px;
-    background-color: #DDE8DD;
+    top: -28px;
+    left: 50%;
+    width: 5px;
+    height: 32px;
+    background-color: #DCEEE0;
+    border-radius: 4px;
 `
 
-const Step = styled.TouchableOpacity`
-    width: 42px;
-    height: 42px;
-    border-radius: 21px;
+const StepButton = styled.TouchableOpacity`
+    width: 78px;
+    height: 78px;
+    border-radius: 39px;
 
-    background-color: #00863F;
+    background-color: ${({ available }) =>
+        available ? "#12B85B" : "#E1E8E2"};
 
-    border-width: 4px;
+    border-width: 5px;
     border-color: #FFFFFF;
 
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 25px;
-    z-index: 3;
+    elevation: 3;
 `
 
-const StepText = styled.Text`
-    color: #FFFFFF;
+const StepCaption = styled.View`
+    max-width: 240px;
+    min-width: 180px;
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    padding: 11px 14px;
+    align-items: center;
+    margin-top: 10px;
+`
+
+const StepTitle = styled.Text`
+    color: #143C28;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
+    text-align: center;
 `
 
-const LessonButton = styled.TouchableOpacity`
-    width: 90%;
-    height: 42px;
+const StepSubtitle = styled.Text`
+    color: #64796C;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 4px;
+`
 
+const FinishCard = styled.View`
+    width: 100%;
     background-color: #FFFFFF;
-
-    border-width: 1px;
-    border-color: #00B950;
-    border-radius: 6px;
-
-    align-items: center;
-    justify-content: center;
-
-    margin: 15px 0;
-    z-index: 4;
-`
-
-const LessonButtonText = styled.Text`
-    color: #00863F;
-    font-size: 11px;
-    font-weight: bold;
-`
-
-const PlayButton = styled.TouchableOpacity`
-    width: 52px;
-    height: 52px;
-    border-radius: 26px;
-
-    background-color: #FFFFFF;
-
-    border-width: 4px;
-    border-color: #00C853;
-
-    align-items: center;
-    justify-content: center;
-
-    margin: 8px 0 28px 0;
-    z-index: 4;
-`
-
-const PlayText = styled.Text`
-    color: #00B950;
-    font-size: 17px;
-    margin-left: 3px;
-`
-
-const LockedStep = styled.View`
-    width: 40px;
-    height: 40px;
     border-radius: 20px;
+    padding: 18px;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+`
 
-    background-color: #E8EEE8;
-
-    border-width: 2px;
-    border-color: #D7E2D7;
-
+const FinishIcon = styled.View`
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background-color: #E0F5E7;
     align-items: center;
     justify-content: center;
-
-    margin: 20px 0;
-    z-index: 3;
+    margin-right: 14px;
 `
 
-const LockText = styled.Text`
-    color: #BBC8BB;
-    font-size: 14px;
+const FinishTitle = styled.Text`
+    color: #143C28;
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 5px;
 `
 
-
+const FinishDescription = styled.Text`
+    color: #64796C;
+    font-size: 13px;
+    line-height: 20px;
+`
 
 export {
     Container,
-    Header,
-    ProfileArea,
-    Avatar,
-    ProfileText,
-    Name,
-    Level,
-    PointsArea,
-    Points,
-    Bell,
     Content,
+    PageTitle,
+    PageSubtitle,
     ModuleCard,
+    ModuleLabel,
     ModuleTitle,
-    ModuleProgress,
+    ModuleDescription,
     TrailArea,
-    TrailLine,
-    Step,
-    StepText,
-    LessonButton,
-    LessonButtonText,
-    PlayButton,
-    PlayText,
-    LockedStep,
-    LockText,
+    TrailPath,
+    TrailItem,
+    StepButton,
+    StepCaption,
+    StepTitle,
+    StepSubtitle,
+    FinishCard,
+    FinishIcon,
+    FinishTitle,
+    FinishDescription,
 }
+
+
 

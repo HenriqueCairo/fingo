@@ -37,7 +37,8 @@ import {
     ResultScore,
     ResultLabel,
     HelpButton,
-    HelpText
+    HelpText,
+    LessonBody
 } from "./style"
 
 import BottomMenu from "../../components/bottom-menu"
@@ -245,10 +246,10 @@ const Lesson = ({ route }) => {
 
     return (
 
-        <Container>
+          <Container>
+        <Header />
 
-          <Header />
-
+        <LessonBody>
             <Content>
 
                 
@@ -273,23 +274,19 @@ const Lesson = ({ route }) => {
 
                     <>
 
-                        <VideoArea>
+                     <VideoArea>
+                        <VideoPlaceholder>
+                            <Ionicons
+                                name="play-circle"
+                                size={42}
+                                color="#FFFFFF"
+                            />
 
-                            <VideoPlaceholder>
-
-                                <Ionicons
-                                    name="play-circle"
-                                    size={42}
-                                    color="#FFFFFF"
-                                />
-
-                                <VideoText>
-                                    VÍDEO DA LIÇÃO
-                                </VideoText>
-
-                            </VideoPlaceholder>
-
-                        </VideoArea>
+                            <VideoText>
+                                VÍDEO DA LIÇÃO
+                            </VideoText>
+                        </VideoPlaceholder>
+                    </VideoArea>
 
 
                         <Card>
@@ -625,11 +622,7 @@ const Lesson = ({ route }) => {
                 )}
 
             </Content>
-
-
-            {/* AJUDA — VISUAL DEMONSTRATIVO */}
-
-            <HelpButton
+       <HelpButton
                 onPress={() =>
                     Alert.alert(
                         "Ajuda",
@@ -637,14 +630,12 @@ const Lesson = ({ route }) => {
                     )
                 }
             >
-
                 <HelpText>?</HelpText>
-
             </HelpButton>
+        </LessonBody>
 
-            <BottomMenu active="Lesson" />
-
-        </Container>
+        <BottomMenu active="Lesson" />
+    </Container>
     )
 }
 

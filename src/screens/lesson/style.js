@@ -1,325 +1,202 @@
+
 import styled from "styled-components/native"
 import { SafeAreaView } from "react-native-safe-area-context"
 
-
-const Container = styled(SafeAreaView)`
+const Container = styled(SafeAreaView).attrs({
+    edges: ["bottom"],
+})`
     flex: 1;
     background-color: #F4FFF1;
 `
 
-
-const Header = styled.View`
-    width: 100%;
-    height: 52px;
-
-    background-color: #FFFFFF;
-
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 14px;
-
-    border-bottom-width: 1px;
-    border-bottom-color: #E8EEE8;
-`
-
-
-const HeaderButton = styled.TouchableOpacity`
-    width: 34px;
-    height: 34px;
-
-    background-color: #F0F4F0;
-
-    border-radius: 17px;
-
-    align-items: center;
-    justify-content: center;
-`
-
-
-const HeaderTitle = styled.Text`
-    color: #222222;
-    font-size: 13px;
-    font-weight: bold;
-`
-
-
 const Content = styled.ScrollView.attrs({
+    showsVerticalScrollIndicator: false,
     contentContainerStyle: {
-        paddingBottom: 110
+        paddingHorizontal: 20,
+        paddingTop: 24,
+        paddingBottom: 36,
     },
-    showsVerticalScrollIndicator: false
 })`
     flex: 1;
-    padding: 16px;
 `
-
 
 const LessonTitle = styled.Text`
-    color: #222222;
-    font-size: 22px;
-    font-weight: bold;
-
-    margin-bottom: 6px;
+    color: #143C28;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 35px;
+    margin-bottom: 8px;
 `
-
 
 const LessonSubtitle = styled.Text`
-    color: #777777;
-    font-size: 12px;
-
-    margin-bottom: 20px;
-`
-
-
-const VideoArea = styled.View`
-    width: 100%;
-
-    background-color: #FFFFFF;
-
-    padding: 8px;
-    border-radius: 10px;
-
-    margin-bottom: 14px;
-`
-
-
-const VideoPlaceholder = styled.View`
-    width: 100%;
-    height: 175px;
-
-    background-color: #303A38;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 6px;
-`
-
-
-const VideoText = styled.Text`
-    color: #FFFFFF;
-
-    font-size: 12px;
-    font-weight: bold;
-
-    text-align: center;
-
-    margin-top: 10px;
-`
-
-
-const Card = styled.View`
-    width: 100%;
-
-    background-color: #FFFFFF;
-
-    border-radius: 12px;
-
-    padding: 18px;
-
-    margin-bottom: 14px;
-
-    border-width: 1px;
-    border-color: #E5EEE5;
-`
-
-
-const SectionTitle = styled.Text`
-    color: #176B3A;
-
-    font-size: 17px;
-    font-weight: bold;
-
-    margin-bottom: 12px;
-`
-
-
-const Paragraph = styled.Text`
-    color: #555555;
-
-    font-size: 14px;
-    line-height: 23px;
-
-    margin-bottom: 12px;
-`
-
-
-const InfoCard = styled.View`
-    width: 100%;
-
-    background-color: #FFFFFF;
-
-    border-radius: 12px;
-
-    padding: 18px;
-
-    margin-bottom: 14px;
-
-    border-width: 1px;
-    border-color: #E5EEE5;
-`
-
-
-const InfoTitle = styled.Text`
-    color: #176B3A;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    margin-bottom: 12px;
-`
-
-
-const InfoText = styled.Text`
-    color: #555555;
-
-    font-size: 14px;
-    line-height: 23px;
-`
-
-
-const ExampleBox = styled.View`
-    width: 100%;
-
-    background-color: #EAF8E9;
-
-    border-radius: 10px;
-
-    padding: 18px;
-
-    border-left-width: 4px;
-    border-left-color: #08A63E;
-
+    color: #64796C;
+    font-size: 15px;
+    line-height: 22px;
     margin-bottom: 24px;
 `
 
+const VideoArea = styled.View`
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+`
 
-const ExampleTitle = styled.Text`
-    color: #176B3A;
+const VideoPlaceholder = styled.View`
+    width: 100%;
+    min-height: 200px;
+    background-color: #183D29;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+`
 
+const VideoText = styled.Text`
+    color: #FFFFFF;
     font-size: 15px;
-    font-weight: bold;
-
-    margin-bottom: 10px;
-`
-
-
-const ExampleText = styled.Text`
-    color: #555555;
-
-    font-size: 13px;
-    line-height: 22px;
-`
-
-
-const NextText = styled.Text`
-    color: #666666;
-
-    font-size: 11px;
-    font-weight: bold;
-
+    font-weight: 700;
     text-align: center;
+    margin-top: 12px;
+`
 
+const Card = styled.View`
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    padding: 22px;
+    margin-bottom: 18px;
+`
+
+const SectionTitle = styled.Text`
+    color: #143C28;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 28px;
     margin-bottom: 14px;
 `
 
+const Paragraph = styled.Text`
+    color: #465D50;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 12px;
+`
+
+const InfoCard = styled.View`
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    padding: 22px;
+    margin-bottom: 16px;
+`
+
+const InfoTitle = styled.Text`
+    color: #087F42;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 27px;
+    margin-bottom: 12px;
+`
+
+const InfoText = styled.Text`
+    color: #465D50;
+    font-size: 16px;
+    line-height: 26px;
+`
+
+const ExampleBox = styled.View`
+    width: 100%;
+    background-color: #E0F5E7;
+    border-radius: 20px;
+    padding: 22px;
+    margin-bottom: 26px;
+`
+
+const ExampleTitle = styled.Text`
+    color: #087F42;
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 12px;
+`
+
+const ExampleText = styled.Text`
+    color: #465D50;
+    font-size: 16px;
+    line-height: 26px;
+`
+
+const NextText = styled.Text`
+    color: #64796C;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 16px;
+`
 
 const PrimaryButton = styled.TouchableOpacity`
     width: 100%;
-    min-height: 50px;
-
-    background-color: #08A63E;
-
-    border-radius: 9px;
-
+    min-height: 58px;
+    background-color: #087F42;
+    border-radius: 16px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-    padding: 12px;
-
-    margin-bottom: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
 `
-
 
 const PrimaryButtonText = styled.Text`
     color: #FFFFFF;
-
-    font-size: 14px;
-    font-weight: bold;
-
-    margin-right: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    margin-right: 10px;
 `
-
 
 const SecondaryButton = styled.TouchableOpacity`
     width: 100%;
-    min-height: 48px;
-
+    min-height: 56px;
     background-color: #FFFFFF;
-
     border-width: 1px;
     border-color: #D5E5D5;
-
-    border-radius: 9px;
-
+    border-radius: 16px;
     align-items: center;
     justify-content: center;
-
-    margin-bottom: 15px;
+    padding: 12px;
+    margin-bottom: 16px;
 `
-
 
 const SecondaryButtonText = styled.Text`
-    color: #176B3A;
-
-    font-size: 14px;
-    font-weight: bold;
+    color: #087F42;
+    font-size: 16px;
+    font-weight: 700;
 `
-
 
 const QuestionCard = styled.View`
     width: 100%;
-
     background-color: #FFFFFF;
-
-    border-radius: 12px;
-
-    padding: 18px;
-
-    margin-bottom: 16px;
-
-    border-width: 1px;
-    border-color: #E5EEE5;
+    border-radius: 22px;
+    padding: 20px;
+    margin-bottom: 18px;
 `
 
-
 const QuestionNumber = styled.Text`
-    color: #08A63E;
-
-    font-size: 11px;
-    font-weight: bold;
-
+    color: #087F42;
+    font-size: 13px;
+    font-weight: 800;
     margin-bottom: 12px;
 `
 
-
 const QuestionTitle = styled.Text`
-    color: #222222;
-
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 24px;
-
-    margin-bottom: 16px;
+    color: #143C28;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 20px;
 `
-
 
 const AnswerOption = styled.TouchableOpacity`
     width: 100%;
-    min-height: 54px;
+    min-height: 64px;
 
     background-color: ${({ selected, correct, incorrect }) =>
         correct
@@ -330,7 +207,7 @@ const AnswerOption = styled.TouchableOpacity`
             ? "#EAF8E9"
             : "#FFFFFF"};
 
-    border-width: 1px;
+    border-width: 1.5px;
 
     border-color: ${({ selected, correct, incorrect }) =>
         correct
@@ -339,135 +216,96 @@ const AnswerOption = styled.TouchableOpacity`
             ? "#D64545"
             : selected
             ? "#08A63E"
-            : "#DDDDDD"};
+            : "#DDE8DD"};
 
-    border-radius: 8px;
-
+    border-radius: 14px;
     flex-direction: row;
     align-items: center;
-
-    padding: 12px;
-
-    margin-bottom: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
 `
-
 
 const AnswerText = styled.Text`
-    color: #333333;
-
-    font-size: 13px;
-    line-height: 20px;
-
+    color: #263D30;
+    font-size: 16px;
+    line-height: 23px;
     flex: 1;
-
-    margin-left: 10px;
+    margin-left: 12px;
 `
-
 
 const FeedbackBox = styled.View`
     background-color: ${({ correct }) =>
         correct ? "#EAF8E9" : "#FCE8E8"};
-
-    border-radius: 8px;
-
-    padding: 14px;
-
-    margin-top: 8px;
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 10px;
 `
-
 
 const FeedbackTitle = styled.Text`
     color: ${({ correct }) =>
         correct ? "#176B3A" : "#B53232"};
-
-    font-size: 14px;
-    font-weight: bold;
-
+    font-size: 17px;
+    font-weight: 800;
     margin-bottom: 8px;
 `
 
-
 const FeedbackText = styled.Text`
-    color: #444444;
-
-    font-size: 13px;
-    line-height: 21px;
+    color: #465D50;
+    font-size: 15px;
+    line-height: 24px;
 `
-
 
 const ResultCard = styled.View`
     width: 100%;
-
     background-color: #FFFFFF;
-
-    border-radius: 14px;
-
-    border-width: 1px;
-    border-color: #D5EBD8;
-
-    padding: 28px;
-
+    border-radius: 24px;
+    padding: 32px;
     align-items: center;
-
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 `
-
 
 const ResultScore = styled.Text`
-    color: #176B3A;
-
-    font-size: 38px;
-    font-weight: bold;
-
-    margin-top: 12px;
+    color: #087F42;
+    font-size: 46px;
+    font-weight: 800;
+    margin-top: 14px;
 `
-
 
 const ResultLabel = styled.Text`
-    color: #777777;
-
-    font-size: 13px;
-
-    margin-top: 5px;
+    color: #64796C;
+    font-size: 16px;
+    margin-top: 8px;
 `
-
 
 const HelpButton = styled.TouchableOpacity`
     position: absolute;
-
     right: 16px;
-    bottom: 16px;
-
-    width: 48px;
-    height: 48px;
-
-    border-radius: 24px;
-
+    bottom: 18px;
+    width: 52px;
+    height: 52px;
+    border-radius: 26px;
     background-color: #F5A800;
-
-    border-width: 3px;
+    border-width: 2px;
     border-color: #D98500;
-
     align-items: center;
     justify-content: center;
-
     elevation: 5;
+    z-index: 10;
 `
-
 
 const HelpText = styled.Text`
     color: #222222;
-
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 23px;
+    font-weight: 800;
 `
 
+const LessonBody = styled.View`
+    flex: 1;
+    position: relative;
+`
 
 export {
     Container,
-    Header,
-    HeaderButton,
-    HeaderTitle,
     Content,
     LessonTitle,
     LessonSubtitle,
@@ -500,5 +338,6 @@ export {
     ResultScore,
     ResultLabel,
     HelpButton,
-    HelpText
+    HelpText,
+    LessonBody,
 }
