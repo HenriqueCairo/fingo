@@ -1,167 +1,209 @@
-import styled from "styled-components/native";
 
+import styled from "styled-components/native"
+import { SafeAreaView } from "react-native-safe-area-context"
 
-const Container = styled.View`
+const Container = styled(SafeAreaView)`
     flex: 1;
-    background-color: #F5FFF1;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding: 24px;
+    background-color: #F4FFF1;
 `
 
-
+const Content = styled.ScrollView.attrs({
+    showsVerticalScrollIndicator: false,
+    keyboardShouldPersistTaps: "handled",
+    contentContainerStyle: {
+        flexGrow: 1,
+        justifyContent: "center",
+        paddingHorizontal: 22,
+        paddingTop: 28,
+        paddingBottom: 28,
+    },
+})`
+    flex: 1;
+`
 
 const LogoArea = styled.View`
     align-items: center;
-
-    margin-top: 40px;
-    margin-bottom: 35px;
+    margin-bottom: 34px;
 `
-
 
 const LogoText = styled.Text`
-    font-size: 42px;
-
-    font-weight: bold;
-
-    color: #222222;
+    color: #143C28;
+    font-size: 47px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
 `
-
 
 const LogoGo = styled.Text`
-    color: #00863F;
+    color: #087F42;
 `
+
 const Subtitle = styled.Text`
-    color: #555555;
-
+    color: #64796C;
     font-size: 14px;
-
-    margin-top: 5px;
+    margin-top: 6px;
+    text-align: center;
 `
-
 
 const LoginContainer = styled.View`
     width: 100%;
-
-    background-color: #00863F;
-
-    border-radius: 16px;
-
-    padding: 18px 16px;
+    background-color: #FFFFFF;
+    border-radius: 26px;
+    padding: 25px 20px;
+    border-width: 1px;
+    border-color: #E1EEE3;
 `
 
+const WelcomeIcon = styled.View`
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background-color: #E4F7E9;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 18px;
+`
 
 const Title = styled.Text`
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-
+    color: #143C28;
+    font-size: 25px;
+    font-weight: 800;
     text-align: center;
 `
-
 
 const Description = styled.Text`
-    font-size: 9px;
-    color: white;
-
+    color: #64796C;
+    font-size: 14px;
+    line-height: 22px;
     text-align: center;
-
-    margin-top: 4px;
-    margin-bottom: 20px;
+    margin-top: 9px;
+    margin-bottom: 28px;
 `
 
+const FieldGroup = styled.View`
+    margin-bottom: 18px;
+`
 
-const Input = styled.TextInput`
+const FieldLabel = styled.Text`
+    color: #143C28;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 9px;
+`
+
+const InputWrapper = styled.View`
     width: 100%;
-    height: 42px;
-
-    background-color: white;
-
-    padding: 0 12px;
-
-    margin-bottom: 12px;
-
-    font-size: 11px;
-    color: #111111;
+    min-height: 56px;
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: #DCE8DF;
+    background-color: #FAFDFA;
+    flex-direction: row;
+    align-items: center;
 `
 
-
-const ForgotPassword = styled.TouchableOpacity`
-    align-self: flex-end;
-
-    margin-top: -5px;
-    margin-bottom: 12px;
-`
-
-
-const ForgotPasswordText = styled.Text`
-    font-size: 11px;
-    color: #7DD49B;
-`
-
-
-const Btn = styled.TouchableOpacity`
-    width: 100%;
-
-    height: 48px;
-
-    background-color: #FFFFFF;
-
-    border-radius: 10px;
-
+const InputIcon = styled.View`
+    width: 49px;
     align-items: center;
     justify-content: center;
 `
 
+const Input = styled.TextInput`
+    flex: 1;
+    min-width: 0px;
+    height: 54px;
+    color: #143C28;
+    font-size: 15px;
+    padding-right: 10px;
+`
+
+const PasswordToggle = styled.TouchableOpacity`
+    width: 46px;
+    height: 54px;
+    align-items: center;
+    justify-content: center;
+`
+
+const ForgotPassword = styled.TouchableOpacity`
+    align-self: flex-end;
+    margin-top: -2px;
+    margin-bottom: 25px;
+    padding-vertical: 5px;
+`
+
+const ForgotPasswordText = styled.Text`
+    color: #087F42;
+    font-size: 14px;
+    font-weight: 700;
+`
+
+const Btn = styled.TouchableOpacity`
+    width: 100%;
+    height: 58px;
+    background-color: #087F42;
+    border-radius: 15px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+`
 
 const BtnTitle = styled.Text`
-     color: #00863F;
-
-    font-size: 16px;
-
-    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 800;
 `
 
+const AccountRow = styled.View`
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    gap: 5px;
+`
 
 const AccountText = styled.Text`
-    font-size: 11px;
-    color: #7DD49B;
-
-    text-align: center;
-
-    margin-top: 10px;
+    color: #64796C;
+    font-size: 14px;
 `
-
 
 const RegisterLink = styled.Text`
-    font-size: 12px;
-    font-weight: bold;
-    color: #FFFFFF;
-
-    text-align: center;
-
-    margin-top: 4px;
+    color: #087F42;
+    font-size: 14px;
+    font-weight: 800;
 `
 
+const FooterText = styled.Text`
+    color: #819487;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 28px;
+`
 
 export {
     Container,
+    Content,
     LogoArea,
     LogoText,
     LogoGo,
     Subtitle,
     LoginContainer,
+    WelcomeIcon,
     Title,
     Description,
+    FieldGroup,
+    FieldLabel,
+    InputWrapper,
+    InputIcon,
     Input,
+    PasswordToggle,
     ForgotPassword,
     ForgotPasswordText,
     Btn,
     BtnTitle,
+    AccountRow,
     AccountText,
-    RegisterLink
+    RegisterLink,
+    FooterText,
 }
